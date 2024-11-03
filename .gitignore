@@ -1,0 +1,20 @@
+# Logs
+logs
+*.log
+
+# Build files generated from Parcel
+dist
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# parcel-bundler cache (https://parceljs.org/)
+.parcel-cache
+
+.DS_Store
