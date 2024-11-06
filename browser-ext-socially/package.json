@@ -2,25 +2,31 @@
   "name": "browser-ext-socially",
   "version": "1.0.0",
   "description": "AOAI project that generates social media posts for current page.",
-  "source": "src/index.html",
-  "scripts": {
-    "start": "parcel",
-    "build": "parcel build"
-  },
-  "keywords": [
-    "OpenAI",
-    "browser extension",
-    "Azure OpenAI"
-  ],
   "author": "Sara Gibbons",
   "license": "ISC",
+  "source": "src/index.html",
+  "type": "module",
+  "scripts": {
+    "start": "parcel watch src/manifest.json --host localhost",
+    "build": "parcel build src/manifest.json",
+    "build-web": "parcel build src/index.html --dist-dir web"
+  },
   "devDependencies": {
+    "@eslint/js": "^9.14.0",
+    "@parcel/config-webextension": "^2.12.0",
+    "buffer": "^6.0.3",
     "eslint": "^9.14.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
     "parcel": "^2.12.0",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "process": "^0.11.10"
   },
   "dependencies": {
+    "@azure/identity": "^4.5.0",
+    "@azure/openai": "^2.0.0-beta.2",
+    "openai": "^4.70.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   }

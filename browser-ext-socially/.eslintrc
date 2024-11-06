@@ -1,10 +1,10 @@
 {
-    "root": true,
     "extends": [
       "eslint:recommended",
       "plugin:react/recommended",
       "plugin:prettier/recommended",
-      "plugin:jsx-a11y/recommended"
+      "plugin:jsx-a11y/recommended",
+      "react-app"
     ],
     "plugins": ["react", "prettier", "jsx-a11y"],
     "parserOptions": {
@@ -26,6 +26,9 @@
     },
     "rules": {
       "prettier/prettier": ["warn", { "endOfLine": "auto" }],
-      "react/prop-types": "warn"
+      "react/prop,-types": "warn"
+    },
+    "globals": {
+      "chrome": "readonly"
     }
   }

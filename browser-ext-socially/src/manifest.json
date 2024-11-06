@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Socially - AI Social Media Posts",
+  "icons": {
+    "128": "icons/socially.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": ["identity", "storage", "activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
