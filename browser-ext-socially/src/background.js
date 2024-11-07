@@ -7,10 +7,12 @@ console.log("Background script loaded");
 
 chrome.runtime.onMessage.addListener((message, _sender, _sendResponse) => {
   if (message.type === "PAGE_CONTENT") {
-    console.log("Received page content:", message.content);
-    console.log("Received page URL:", message.url);
     chrome.storage.local.set({ pageContent: message.content, pageUrl: message.url }, () => {
-      console.log("Page content and URL stored");
+      if (chrome.runtime.lastError) {
+        console.error("Error storing page content and URL:", chrome.runtime.lastError);
+      } else {
+        console.log("Page content and URL stored successfully");
+      }
     });
   }
 });

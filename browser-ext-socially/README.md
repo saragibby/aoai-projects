@@ -23,6 +23,10 @@ _Now, that you have the project running locally, let's get it added to your brow
 - You can view errors from your extension by clicking the "Errors" link on the `chrome://extensions/` page.
 - You can also view the console logs from the extension by clicking on the extension icon and then clicking on the "Inspect popup" link.
 
+> 💡**When is doubt, delete**. <br/><br/>
+> If you get weirdness that you can't trace through, stop the extension and delete `.parcel-cache` (and `dist` cause why not) folder and restart the extension. Sometimes things get wound up and can help to start fresh.<br/><br/>
+>And if still not working, you can reload the extension in the browser on the `chrome://extensions/` page and refresh the page you are testing on.
+
 ## Extend your learning
 This is a sample project for you to run locally only to learn and tinker with. Some ideas to extend your learning:
 

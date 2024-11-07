@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react'
 
 function App() {
   const [responses, setResponses] = useState(null)
-  const [pageContent, setPageContent] = useState(null)
-  const [pageUrl, setPageUrl] = useState(null)
 
   /**
    * Initialize the Azure OpenAI client
@@ -32,7 +30,7 @@ function App() {
   /**
    * Generate a completion using the Azure OpenAI API
    */
-  async function generateCompletion() {
+  async function generateCompletion(pageContent, pageUrl) {
     try {
       const response = await client.chat.completions.create({
         messages: [
@@ -55,8 +53,6 @@ function App() {
     if (typeof chrome !== 'undefined' && chrome.storage) {
       chrome.storage.local.get(['pageContent', 'pageUrl'], (result) => {
         if (result.pageContent && result.pageUrl) {
-          setPageContent(result.pageContent)
-          setPageUrl(result.pageUrl)
           generateCompletion(result.pageContent, result.pageUrl)
         } else {
           console.log('No page content or URL found')
@@ -65,7 +61,7 @@ function App() {
     } else {
       console.error('chrome.storage is not available')
     }
-  }, [])
+  }, [chrome.storage.local])
 
   return (
     <div id="main">
